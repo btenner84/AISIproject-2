@@ -1,0 +1,5 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:Emails have been sent successfully.
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2023 20:10:51] "GET /initiate_interview/11 HTTP/1.1" 200 -

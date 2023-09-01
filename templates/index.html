@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research Topic Input</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<script>
+    let questionCount = 0;
+    let sourceCount = 0;
+    function addQuestionInput() {
+        questionCount++;
+        const newInput = document.createElement("input");
+        newInput.type = "text";
+        newInput.name = `question_${questionCount}`;
+        newInput.id = `question_${questionCount}`;
+        newInput.placeholder = `Question ${questionCount}`;
+        
+        document.getElementById("questionsDiv").appendChild(newInput);
+    }
+
+    function addSourceInput() {
+        sourceCount++;
+        const newDiv = document.createElement("div");
+        newDiv.id = `source_${sourceCount}`;
+
+        const nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.name = `source_${sourceCount}_name`;
+        nameInput.placeholder = `Source ${sourceCount} Name`;
+
+        const titleInput = document.createElement("input");
+        titleInput.type = "text";
+        titleInput.name = `source_${sourceCount}_title`;
+        titleInput.placeholder = `Source ${sourceCount} Job Title`;
+
+        const emailInput = document.createElement("input");
+        emailInput.type = "text";
+        emailInput.name = `source_${sourceCount}_email`;
+        emailInput.placeholder = `Source ${sourceCount} Email`;
+
+        const phoneInput = document.createElement("input");
+        phoneInput.type = "text";
+        phoneInput.name = `source_${sourceCount}_phone`;
+        phoneInput.placeholder = `Source ${sourceCount} Phone Number`;
+
+        const companyInput = document.createElement("input");
+        companyInput.type = "text";
+        companyInput.name = `source_${sourceCount}_company`;
+        companyInput.placeholder = `Source ${sourceCount} Company Affiliation`;
+
+        newDiv.appendChild(nameInput);
+        newDiv.appendChild(titleInput);
+        newDiv.appendChild(emailInput);
+        newDiv.appendChild(phoneInput);
+        newDiv.appendChild(companyInput);
+
+        document.getElementById("sourcesDiv").appendChild(newDiv);
+    }
+</script>
+
+<nav>
+    <a href="/">Home</a> | <a href="/research">Research Topic Input</a> | <a href="/research_reports">Research Reports</a>
+</nav>
+
+<h1>Research Topic Input</h1>
+
+<form action="/research" method="post">
+    <!-- Topic Input -->
+    <div class="input-group"></div>
+    <label for="topic">Topic:</label>
+    <input type="text" id="topic" name="topic"><br>
+    </div>
+
+    <!-- New Date Input -->
+    <div class="input-group"></div>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date"><br>
+    </div>
+    <!-- Companies Involved Input -->
+    <div class="input-group"></div>
+    <label for="companies_involved">Companies Involved:</label>
+    <input type="text" id="companies_involved" name="companies_involved"><br>
+    </div>
+    <!-- Context Input -->
+    <div class="input-group"></div>
+    <label for="context">Context:</label>
+    <input type="text" id="context" name="context"><br>
+    </div>  
+    <!-- Source Base Input -->
+    <div class="input-group"></div>
+    <label for="source_base">Source Base:</label>
+    <input type="text" id="source_base" name="source_base"><br>
+    </div>  
+    <!-- Source List Input -->
+    <div class="input-group"></div>
+    <label for="sources">Sources:</label>
+    <div id="sourcesDiv">
+    </div>   <!-- Dynamic source input boxes will be appended here -->
+    </div>
+    <button type="button" onclick="addSourceInput()">Add Source</button>
+
+    <!-- Questions Input -->
+    <div class="input-group"></div>
+    <label for="questions">Questions:</label>
+    <div id="questionsDiv">
+        <!-- Dynamic question input boxes will be appended here -->
+    </div>
+    <button type="button" onclick="addQuestionInput()">Add Question</button>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

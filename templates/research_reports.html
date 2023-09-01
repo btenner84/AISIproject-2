@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research Reports</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> | <a href="/research">Research Topic Input</a> | <a href="/research_reports">Research Reports</a>
+</nav>
+
+<h1>Research Reports</h1>
+
+<ul>
+    {% for report in reports %}
+    <li>
+        <a href="{{ url_for('report_details', report_id=report['id']) }}">
+            {{ report['topic'] }} (Date: {{ report['date'] }})
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

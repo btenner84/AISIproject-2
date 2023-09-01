@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Details</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> | <a href="/research">Research Topic Input</a> | <a href="/research_reports">Research Reports</a>
+</nav>
+
+<div class="report-details">
+
+<h1>Report Details</h1>
+
+<h2>{{ report['topic'] }}</h2>
+<p>Date: {{ report['date'] }}</p>
+<p>Companies Involved: {{ report['companies_involved'] }}</p>
+<p>Context: {{ report['context'] }}</p>
+<p>Source Base: {{ report['source_base'] }}</p>
+
+<h3>Questions</h3>
+<ul>
+    {% for question_key, question_value in questions.items() %}
+        <li>{{ question_key.replace('_', ' ') | capitalize }}: {{ question_value }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Source Emails</h3>
+<ul>
+    {% for source in sources.values() %}
+    <li>{{ source['email'] }}</li>
+    {% endfor %}
+</ul>
+
+<p><a href="{{ url_for('report_sources', report_id=report['id']) }}">Source List</a>
+<p><a href="{{ url_for('report_calculations', report_id=report['id']) }}">Report Calculations</a>
+<p><a class="interview-link" href="{{ url_for('initiate_interview', report_id=report['id']) }}">Initiate AISI</a>
+    <form class="delete-form" method="POST" action="{{ url_for('delete_report', report_id=report.id) }}">
+        <input type="submit" value="Delete">
+</form>
+</div>
+</body>
+</html>

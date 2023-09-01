@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alpha3I Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<h1>Alpha3I</h1>
+
+<nav>
+    <a href="/">Home</a> | 
+    {% if logged_in %}
+        <a href="/research">Research Topic Input</a> | 
+        <a href="/research_reports">Research Reports</a> |
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a> | 
+        <a href="/signup">Signup</a>
+    {% endif %}
+</nav>
+
+<h2>What is Alpha3I?</h2>
+<p>Alpha3I is a web based marketplace intelligence platform that combines our unique research methodology with the AISI tool.  </p>
+
+
+<h2>About Our Research Methodology</h2>
+<p>
+1. Define Topic - The topic can be a product/market but all projects must specify 1+ companies it is focusing on
+<p></p>2. Define Source Base - This would be deciding where the information will be gathered from. 
+<p></p>3. Write Questionnaire - To focus the research, a set of questions is prepared. This is based on existing information like company analyst reports, earnings transcripts, and other relevant news sources.
+<p></p>4. Source Interviews - This step involves reaching out to and interviewing selected sources. It's in this step that the AISI tool plays a pivotal role.
+<p></p>5. Publish results and Insights gained - After all the data has been gathered and processed, the results and insights are made available to the client.
+</p>
+
+<h2>About AISI</h2>
+<p>AISI is a key tool involved in Alpha3I research methodology. Once your topic is defined, context is provided and questionaire is developed AISI will contact your source base(which is provided via Zoominfo/signalhire/linkedin). AISI acts as the interviewer by automatating sourcing and interviewing leaving more time idea generation, data analysis, and generating alpha</p>
+
+</body>
+</html>
