@@ -13,7 +13,7 @@ from sendgrid.helpers.mail import Mail
 import openai
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY')
+app.secret_key = 'your-secret-key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['DEBUG'] = False
 app.config['TESTING'] = False
