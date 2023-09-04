@@ -1,3 +1,2 @@
-SECRET_KEY=mysecretkey
-DATABASE_URL=sqlite:///database.db
+
 # Add any other environment variables

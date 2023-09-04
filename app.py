@@ -14,7 +14,7 @@ import openai
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['DEBUG'] = False
 app.config['TESTING'] = False
 
@@ -27,9 +27,8 @@ login_manager.login_view = 'login'
 
 
 DATABASE = 'database.db'
-openai.api_key = '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'
-sendgrid_api_key = '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'
-
+openai.api_key = os.getenv('OPENAI_KEY')
+sendgrid_api_key = os.getenv('SENDGRID_KEY')
 class User(UserMixin):
     def __init__(self, id):
         self.id = id
